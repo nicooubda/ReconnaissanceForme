@@ -1,0 +1,77 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">      
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<style>
+		#blah{
+			display: none;
+		}
+
+	</style>
+
+</head>
+<body>
+	<!--NAVBAR-->
+	<div class="navbar-fixed">
+		<nav class="blue">
+			<div class="navbar-wrapper">
+				<a href="#" class="brand-logo" style="margin-left: 16px">Reconnaissance de forme</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/">Accueil</a></li>
+					<!--<li><a href="categorie">Ajouter une catégorie</a></li>-->
+					<li><a href="prediction">Prédire une image</a></li>
+					<li><a href="predictionImage">Détection d'objet sur image</a></li>
+					
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--Upload Image-->
+	<br/>
+	<br/>
+	
+	
+	
+	<div class="row message">
+			<div class="container ">
+				<div class="card-panel red lighten-2 white-text">
+<h4>Notre plateforme a pour objectif de prédire la catégorie d'une image en utilisant une image. Ainsi l'utilisateur peut     		ajouter la catégorie d'image qu'il souhaite.</h4>
+				</div>
+			</div>
+		</div>
+		
+	
+	  
+
+	<!--Script for Previewing Images-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+					$('#blah').css({"display": "block"});
+					$('#icon').css({"display": "none"});
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imgInp").change(function(){
+			readURL(this);
+		});
+	</script>
+
+</body>
+
+</html>

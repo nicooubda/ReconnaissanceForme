@@ -1,0 +1,87 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">      
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> 
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+	<style>
+		#blah{
+			display: none;
+		}
+
+	</style>
+
+</head>
+<body>
+	<!--NAVBAR-->
+	<div class="navbar-fixed">
+		<nav class="blue">
+			<div class="navbar-wrapper">
+				<a href="#" class="brand-logo" style="margin-left: 16px">Reconnaissance de forme</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/">Accueil</a></li>
+					<!--<li><a href="categorie">Ajouter une catégorie</a></li>-->
+					<li><a href="prediction">Prédire une image</a></li>
+					<li><a href="predictionImage">Détection d'objet sur image</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--Upload Image-->
+	<form action="predictions" class="row" method="POST">
+		<div class="file-field input-field row">
+			<div class="btn col wave-effect wave-light yellow accent-2 s2 offset-s5">
+				<span class="black-text">Select File</span>
+				<input type="file" id="imgInp" name="imgInp" value="">
+			</div><br>
+			<div class="file-path-wrapper col s2 offset-s5 ">
+				<input class="file-path validate" type="text">
+			</div>
+	
+		</div>
+		<div class="col s12 row">
+			<i id="icon" class="col s4 offset-s5 material-icons large" style="font-size: 200px;color: grey">file</i>
+			<img class="col s4 offset-s4" id="blah" src="" alt="your image" />	
+		</div>	
+		<div class="col s12 row">
+		
+			<button class="btn waves-effect waves-light green accent-2 col s2 offset-s5" type="submit" name="action">
+			<span class="black-text">Prédire</span>
+
+			</button>
+			
+		</div>			
+		<!--Previewing Images-->
+
+	</form>  
+
+	<!--Script for Previewing Images-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#blah').attr('src', e.target.result);
+					$('#blah').css({"display": "block"});
+					$('#icon').css({"display": "none"});
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#imgInp").change(function(){
+			readURL(this);
+		});
+	</script>
+
+</body>
+
+</html>
